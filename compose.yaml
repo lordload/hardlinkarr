@@ -1,0 +1,30 @@
+services:
+  streaming:
+    build:
+      context: .
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    container_name: streaming
+    environment:
+      TZ: Europe/Berlin
+
+      JELLYFIN_ADDRESS: ${JELLYFIN_ADDRESS}
+      JELLYFIN_API_KEY: ${JELLYFIN_API_KEY}
+
+      RADARR_CATEGORY: ${RADARR_CATEGORY}
+      RADARR_HOST: ${RADARR_HOST}
+      RADARR_API_KEY: ${RADARR_API_KEY}
+
+      SONARR_CATEGORY: ${SONARR_CATEGORY}
+      SONARR_HOST: ${SONARR_HOST}
+      SONARR_API_KEY: ${SONARR_API_KEY}
+
+      NZBGET_DIR: ${NZBGET_DIR}
+      VIDEO_EXTENSIONS: ${VIDEO_EXTENSIONS}
+    volumes:
+      - ./app/index.py:/usr/src/app/index.py:ro
+      - ${HOST_DIR}:${CONTAINER_DIR}
+    extra_hosts:
+      host.docker.internal: host-gateway
+    restart: always

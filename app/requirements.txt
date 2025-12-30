@@ -1,0 +1,4 @@
+requests
+watchdog
+pyarr
+jellyfin-apiclient-python
