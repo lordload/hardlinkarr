@@ -1,11 +1,11 @@
 services:
-  streaming:
+  hardlinkarr:
     build:
       context: .
       args:
         UID: ${UID}
         GID: ${GID}
-    container_name: streaming
+    container_name: hardlinkarr
     environment:
       TZ: Europe/Berlin
 

@@ -25,7 +25,7 @@ VIDEO_EXTENSIONS = tuple(os.getenv('VIDEO_EXTENSIONS').split(','))
 
 
 jellyfin = JellyfinClient()
-jellyfin.config.data['app.name'] = 'streaming'
+jellyfin.config.data['app.name'] = 'hardlinkarr'
 jellyfin.config.data['app.version'] = '1.0.0'
 jellyfin.config.data['auth.ssl'] = False
 jellyfin.authenticate({"Servers": [{"AccessToken": JELLYFIN_API_KEY, "address": JELLYFIN_ADDRESS}]}, discover=False)
